@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>TEBD / Doctor</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link href="main.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-dark navbar-expand-lg sticky-top" style="background-color: #292929;" th:fragment="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">TEBD / Doctor</a>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="insert.html">New Doctor</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-">
+                    <div class="card flex">
+                        <h2 class="card-header">Search</h2>
+                        <div class="card-body">
+                            <form action="submit.html" method="GET">
+                                <div class="input-group rounded">
+                                    <input type="text" class="form-control" id="search" name="search">
+                                    <button class="btn btn-outline-primary" type="submit" id="submit" value="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-">
+                    <div class="card flex">
+                        <h2 class="card-header">Doctors</h2>
+                        <div class="card-body">
+                            <table class="table table-striped" id="doctors">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Experience</th>
+                                        <th scope="col">Expertise</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <a href="test.html">
+                                            <td>Mark Twain</td>
+                                            <td>5 years</td>
+                                            <td>Brains</td>
+                                        </a>
+                                    </tr>
+                                    <tr>
+                                        <td>Peter Griffin</td>
+                                        <td>Intern</td>
+                                        <td>Knees</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Steve Jobs</td>
+                                        <td>30 years</td>
+                                        <td>Cancer</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        var table = document.getElementById("doctors");
+
+        table.onclick = function(ev) {
+            let name = ev.target.parentNode.cells[0].innerHTML;
+            let experience = ev.target.parentNode.cells[1].innerHTML;
+            let expertise = ev.target.parentNode.cells[2].innerHTML;
+
+            location.href = "insert.html?name=" + name + "&experience=" + experience + "&expertise=" + expertise;
+        };
+    </script>
+</html>
